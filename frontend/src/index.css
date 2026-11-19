@@ -1,7 +1,96 @@
-* {
-  box-sizing: border-box;
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, sans-serif;
+  color: #1c2236;
+  background: #f7f8fc;
+  --paper: #f7f8fc;
+  --surface: #fff;
+  --ink: #1c2236;
+  --muted: #515b73;
+  --line: #d9deea;
+  --accent: #3949c4;
+  --accent-strong: #2d39a3;
+  --on-accent: #fff;
+  --accent-soft: #e9ecff;
+  --error: #a32e36;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
 }
 
-body {
-  margin: 0;
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  color: #edf0ff;
+  background: #141725;
+  --paper: #141725;
+  --surface: #1d2234;
+  --ink: #edf0ff;
+  --muted: #b5bed6;
+  --line: #363e57;
+  --accent: #a9b3ff;
+  --accent-strong: #c5cbff;
+  --on-accent: #171b40;
+  --accent-soft: #2a3259;
+  --error: #ffa1a4;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; line-height: 1.6; }
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+main { flex: 1; }
+
+main:focus { outline: none; }
+
+h1, h2, h3, p { margin: 0; }
+
+h1, h2, h3 { line-height: 1.12; text-wrap: balance; }
+
+button, input, textarea { font: inherit; }
+
+button { cursor: pointer; }
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+.container { width: min(100% - 3rem, 70rem); margin-inline: auto; }
+
+.page { padding-block: clamp(3rem, 8vw, 6rem); }
+
+.page-heading { margin-bottom: 2.25rem; }
+
+.page h1 { font-size: clamp(2.45rem, 6vw, 4.25rem); letter-spacing: -0.055em; }
+
+.page-heading > p:not(.eyebrow) { color: var(--muted); max-width: 54ch; margin-top: 0.85rem; }
+
+.eyebrow {
+  margin-bottom: 0.9rem;
+  color: var(--accent);
+  font: 600 0.875rem/1.4 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.85rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.button.primary { background: var(--accent); color: var(--on-accent); }
+.button.primary:hover { background: var(--accent-strong); }
+.button.secondary { border-color: var(--line); color: var(--ink); background: transparent; }
+.button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 34rem) {
+  .container { width: calc(100% - 2rem); }
 }
