@@ -1,6 +1,6 @@
 import type { Project } from '../types/project'
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, heading: Heading }: { project: Project; heading: 'h2' | 'h3' }) {
   const { category, title, description, image, stack, repository, demo } = project
 
   return (
@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <img className="project-image" src={image.src} alt={image.alt} loading="lazy" />
       <div className="project-body">
         <p className="eyebrow">{category}</p>
-        <h3>{title}</h3>
+        <Heading>{title}</Heading>
         <p className="project-description">{description}</p>
         <ul className="tags" aria-label="Technologies">
           {stack.map((item) => <li key={item}>{item}</li>)}

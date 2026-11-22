@@ -1,0 +1,22 @@
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skill-group {
+  padding: clamp(1.2rem, 3vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: 0.6rem;
+  background: var(--surface);
+}
+
+.skill-group h2 { font-size: 1.35rem; letter-spacing: -0.035em; }
+.skill-group p { color: var(--muted); margin-top: 0.65rem; }
+.skill-group ul { margin: 1rem 0 0; padding-left: 1.1rem; }
+.skill-group li::marker { color: var(--accent); }
+
+@media (max-width: 47rem) {
+  .skills-grid { grid-template-columns: 1fr; }
+}

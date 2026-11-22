@@ -28,3 +28,5 @@ export const projects: Project[] = [
     featured: true,
   },
 ]
+
+export const projectsIntro = 'Small games and tools I’ve built while working with React, TypeScript and the web.'

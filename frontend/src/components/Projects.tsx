@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { projects } from '../config/projects'
+import { projects, projectsIntro } from '../config/projects'
 import ProjectCard from './ProjectCard'
 import '../styles/projects.css'
 
@@ -10,13 +10,14 @@ export default function Projects({ preview = false }: { preview?: boolean }) {
   const visibleProjects = projects.filter((project) =>
     preview ? project.featured : category === null || project.category === category,
   )
+  const CardHeading = preview ? 'h3' : 'h2'
   const Heading = preview ? 'h2' : 'h1'
 
   return (
     <section className={preview ? 'container selected-work' : 'container page'} aria-labelledby="projects-title">
       <div className="page-heading">
         <Heading id="projects-title">{preview ? 'Selected projects' : 'Projects'}</Heading>
-        {!preview && <p>Small games and tools I’ve built while working with React, TypeScript and the web.</p>}
+        {!preview && <p>{projectsIntro}</p>}
       </div>
       {!preview && categories.length > 1 && (
         <div className="project-filters" role="group" aria-label="Filter projects">
@@ -30,7 +31,7 @@ export default function Projects({ preview = false }: { preview?: boolean }) {
       )}
       {visibleProjects.length > 0 ? (
         <div className="project-grid">
-          {visibleProjects.map((project) => <ProjectCard key={project.id} project={project} />)}
+          {visibleProjects.map((project) => <ProjectCard key={project.id} project={project} heading={CardHeading} />)}
         </div>
       ) : <p>Projects will appear here when they’re added.</p>}
       {preview && <Link className="all-projects" to="/projects">View all projects</Link>}
