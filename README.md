@@ -48,9 +48,4 @@ frontend/
     router/            Page routes
     styles/            Section stylesheets
     types/             Shared TypeScript types
-netlify.toml           Netlify build and route settings
 ```
-
-## Deploy to Netlify
-
-Import the repository from GitHub in Netlify. The included `netlify.toml` sets `frontend` as the base directory, runs `npm run build`, publishes `dist` and rewrites page URLs to the React app for direct visits and refreshes.
